@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Divider, InputAdornment, Stack, TextField } from '@mui/material';
+import { Replay as ReplayIcon, Calculate as CalculateIcon } from '@mui/icons-material';
 import FormData from 'models/FormData';
 
 const formDataInitialState = {
@@ -101,6 +102,7 @@ const Form = (props: FormProps): JSX.Element => {
         <Stack direction="row" justifyContent="center" spacing={2}>
           <Button
             variant="contained"
+            startIcon={<ReplayIcon />}
             color="secondary"
             onClick={handleResetClick}
             disabled={
@@ -114,6 +116,7 @@ const Form = (props: FormProps): JSX.Element => {
           </Button>
           <Button
             variant="contained"
+            startIcon={<CalculateIcon />}
             type="submit"
             disabled={
               formData.lineLength === '' ||
