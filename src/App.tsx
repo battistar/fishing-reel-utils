@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container } from '@mui/material';
 import Form from 'components/Form';
 import FormData from 'models/FormData';
+import Header from 'components/Header';
 
 const parseInput = (input: string): number => {
   const normalizedInput = input.replace(',', '.');
@@ -38,9 +39,14 @@ const App = (): JSX.Element => {
   console.log(result);
 
   return (
-    <Container maxWidth="sm">
-      <Form onSubmit={handleSubmit} />
-    </Container>
+    <>
+      <Header />
+      <main>
+        <Container maxWidth="sm">
+          <Form onSubmit={handleSubmit} />
+        </Container>
+      </main>
+    </>
   );
 };
 
