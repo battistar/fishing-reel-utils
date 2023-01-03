@@ -3,6 +3,7 @@ import { Container } from '@mui/material';
 import Form from 'components/Form';
 import FormData from 'models/FormData';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 
 const parseInput = (input: string): number => {
   const normalizedInput = input.replace(',', '.');
@@ -46,6 +47,7 @@ const App = (): JSX.Element => {
           <Form onSubmit={handleSubmit} />
         </Container>
       </main>
+      <Footer />
     </>
   );
 };
