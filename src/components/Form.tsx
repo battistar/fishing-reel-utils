@@ -87,6 +87,7 @@ const Form = (props: FormProps): JSX.Element => {
           name="desiredLineLength"
           value={formData.desiredLineLength}
           onChange={handleChange}
+          disabled={formData.lineLength !== '' && formData.lineSize !== '' && formData.desiredLineSize !== ''}
         />
         <Divider>OR</Divider>
         <TextField
@@ -98,6 +99,7 @@ const Form = (props: FormProps): JSX.Element => {
           name="desiredLineSize"
           value={formData.desiredLineSize}
           onChange={handleChange}
+          disabled={formData.lineLength !== '' && formData.lineSize !== '' && formData.desiredLineLength !== ''}
         />
         <Stack direction="row" justifyContent="center" spacing={2}>
           <Button
