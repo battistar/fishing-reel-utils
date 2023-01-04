@@ -32,8 +32,8 @@ const Result = (props: ResultProps): JSX.Element => {
   const handleShareClick = async (): Promise<void> => {
     if (navigator.share) {
       const data = {
-        title: 'Fishing Reel Utils Web App',
-        text: `Your fishing reel spool can contain ${lineLength} m of line sizes ${lineSize} ⌀`,
+        title: 'Fishing Reel Utils',
+        text: `Your fishing reel spool can contain ${lineLength} m of line size ${lineSize} ⌀`,
       };
 
       try {
