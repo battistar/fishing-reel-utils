@@ -3,6 +3,8 @@ import { Container } from '@mui/material';
 import Form from 'components/Form';
 import FormData from 'models/FormData';
 import Header from 'components/Header';
+import ResultData, { ResultType } from 'models/ResultData';
+import Result from 'components/Result';
 import Footer from 'components/Footer';
 
 const parseInput = (input: string): number => {
@@ -20,7 +22,11 @@ const getLineLength = (lineLength: number, lineSize: number, desiredLineSize: nu
 };
 
 const App = (): JSX.Element => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<ResultData>({
+    type: ResultType.Size,
+    lineLingth: 0,
+    lineSize: 0,
+  });
 
   const handleSubmit = (formData: FormData): void => {
     const lineLength = parseInput(formData.lineLength);
@@ -29,15 +35,25 @@ const App = (): JSX.Element => {
     const desiredLineSize = parseInput(formData.desiredLineSize);
 
     if (isNaN(desiredLineLength)) {
-      setResult(`${getLineLength(lineLength, lineSize, desiredLineSize).toFixed(3)} m`);
+      const length = getLineLength(lineLength, lineSize, desiredLineSize);
+
+      setResult({
+        type: ResultType.Length,
+        lineLingth: length,
+        lineSize: lineSize,
+      });
     }
 
     if (isNaN(desiredLineSize)) {
-      setResult(`${getLineSize(lineLength, lineSize, desiredLineLength).toFixed(3)} ⌀`);
+      const size = getLineSize(lineLength, lineSize, desiredLineLength);
+
+      setResult({
+        type: ResultType.Size,
+        lineLingth: lineLength,
+        lineSize: size,
+      });
     }
   };
-
-  console.log(result);
 
   return (
     <>
@@ -45,6 +61,7 @@ const App = (): JSX.Element => {
       <main>
         <Container maxWidth="sm">
           <Form onSubmit={handleSubmit} />
+          <Result result={result} />
         </Container>
       </main>
       <Footer />
