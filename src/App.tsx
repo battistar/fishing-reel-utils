@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container } from '@mui/material';
+import { Container, createTheme, ThemeProvider } from '@mui/material';
 import Form from 'components/Form';
 import FormData from 'models/FormData';
 import Header from 'components/Header';
@@ -26,6 +26,14 @@ const App = (): JSX.Element => {
     type: ResultType.Size,
     lineLingth: 0,
     lineSize: 0,
+  });
+
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#009688',
+      },
+    },
   });
 
   const handleSubmit = (formData: FormData): void => {
@@ -56,7 +64,7 @@ const App = (): JSX.Element => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Header />
       <main>
         <Container maxWidth="sm">
@@ -65,7 +73,7 @@ const App = (): JSX.Element => {
         </Container>
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 
