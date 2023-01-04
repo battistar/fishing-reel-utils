@@ -62,6 +62,10 @@ const Form = (props: FormProps): JSX.Element => {
           InputProps={{
             endAdornment: <InputAdornment position="end">m</InputAdornment>,
           }}
+          inputProps={{
+            type: 'text',
+            inputMode: 'decimal',
+          }}
           name="lineLength"
           value={formData.lineLength}
           onChange={handleChange}
@@ -73,6 +77,10 @@ const Form = (props: FormProps): JSX.Element => {
           InputProps={{
             endAdornment: <InputAdornment position="end">mm</InputAdornment>,
           }}
+          inputProps={{
+            type: 'text',
+            inputMode: 'decimal',
+          }}
           name="lineSize"
           value={formData.lineSize}
           onChange={handleChange}
@@ -83,6 +91,10 @@ const Form = (props: FormProps): JSX.Element => {
           placeholder="E.g. 200"
           InputProps={{
             endAdornment: <InputAdornment position="end">m</InputAdornment>,
+          }}
+          inputProps={{
+            type: 'text',
+            inputMode: 'decimal',
           }}
           name="desiredLineLength"
           value={formData.desiredLineLength}
@@ -96,6 +108,10 @@ const Form = (props: FormProps): JSX.Element => {
           InputProps={{
             endAdornment: <InputAdornment position="end">mm</InputAdornment>,
           }}
+          inputProps={{
+            type: 'text',
+            inputMode: 'decimal',
+          }}
           name="desiredLineSize"
           value={formData.desiredLineSize}
           onChange={handleChange}
@@ -105,6 +121,7 @@ const Form = (props: FormProps): JSX.Element => {
           <Button
             variant="contained"
             startIcon={<ReplayIcon />}
+            color="secondary"
             onClick={handleResetClick}
             disabled={
               formData.lineLength === '' &&
