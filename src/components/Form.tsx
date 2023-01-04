@@ -105,7 +105,6 @@ const Form = (props: FormProps): JSX.Element => {
           <Button
             variant="contained"
             startIcon={<ReplayIcon />}
-            color="secondary"
             onClick={handleResetClick}
             disabled={
               formData.lineLength === '' &&
