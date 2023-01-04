@@ -24,7 +24,7 @@ const Result = (props: ResultProps): JSX.Element => {
   const lineSize = props.result.lineSize.toFixed(3);
 
   const handleCopyClick = (): void => {
-    navigator.clipboard.writeText(`${lineLength} mm - ${lineSize} ⌀`);
+    navigator.clipboard.writeText(`${lineLength} m - ${lineSize} ⌀`);
 
     setOpenSnackbar(true);
   };
@@ -60,7 +60,7 @@ const Result = (props: ResultProps): JSX.Element => {
         <Stack spacing={2}>
           {props.result.type === ResultType.Size ? (
             <Stack alignItems="center">
-              <Typography variant="h6" component="span">{`${lineLength} mm`}</Typography>
+              <Typography variant="h6" component="span">{`${lineLength} m`}</Typography>
               <Typography variant="h4" component="span">
                 {`${lineSize} ⌀`}
               </Typography>
@@ -69,7 +69,7 @@ const Result = (props: ResultProps): JSX.Element => {
             <Stack alignItems="center">
               <Typography variant="h6" component="span">{`${lineSize} ⌀`}</Typography>
               <Typography variant="h4" component="span">
-                {`${lineLength} mm`}
+                {`${lineLength} m`}
               </Typography>
             </Stack>
           )}
