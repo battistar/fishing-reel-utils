@@ -60,14 +60,14 @@ const Result = (props: ResultProps): JSX.Element => {
         <Stack spacing={2}>
           {props.result.type === ResultType.Size ? (
             <Stack alignItems="center">
-              <Typography>{`${lineLength} mm`}</Typography>
+              <Typography variant="h6" component="span">{`${lineLength} mm`}</Typography>
               <Typography variant="h4" component="span">
                 {`${lineSize} ⌀`}
               </Typography>
             </Stack>
           ) : (
             <Stack alignItems="center">
-              <Typography>{`${lineSize} ⌀`}</Typography>
+              <Typography variant="h6" component="span">{`${lineSize} ⌀`}</Typography>
               <Typography variant="h4" component="span">
                 {`${lineLength} mm`}
               </Typography>

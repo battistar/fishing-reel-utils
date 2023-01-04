@@ -5,9 +5,6 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 const CustomizedFooter = styled('footer')(
   ({ theme }) => `
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     padding: ${theme.spacing(1)};
     background-color: ${theme.palette.primary.main};
