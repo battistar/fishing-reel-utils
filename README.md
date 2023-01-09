@@ -1,8 +1,8 @@
 # Fishing reel utils
 
-Utility to calculate line length or size of a fishing reel spool.
+Utility to calculate line length or size of a fishing reel spool made with React.
 
-The app is available on [https://battistar.github.io/poison/](https://battistar.github.io/fishing-reel-utils/).
+The app is available on [https://battistar.github.io/fishing-reel-util/](https://battistar.github.io/fishing-reel-utils/).
 
 ## Development
 
