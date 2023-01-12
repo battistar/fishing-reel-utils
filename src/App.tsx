@@ -48,7 +48,7 @@ const App = (): JSX.Element => {
       setResult({
         type: ResultType.Length,
         lineLingth: length,
-        lineSize: lineSize,
+        lineSize: desiredLineSize,
       });
     }
 
@@ -57,7 +57,7 @@ const App = (): JSX.Element => {
 
       setResult({
         type: ResultType.Size,
-        lineLingth: lineLength,
+        lineLingth: desiredLineLength,
         lineSize: size,
       });
     }
