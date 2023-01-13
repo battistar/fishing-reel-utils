@@ -33,7 +33,7 @@ const Result = (props: ResultProps): JSX.Element => {
     if (navigator.share) {
       const data = {
         title: 'Fishing Reel Utils',
-        text: `Your fishing reel spool can contain ${lineLength} m of line size ${lineSize} ⌀`,
+        text: `Your fishing reel spool can contain ${lineLength} m of line size ${lineSize} ⌀. Check other results on https://battistar.github.io/fishing-reel-utils/`,
       };
 
       try {
