@@ -20,7 +20,7 @@ const StyledBox = styled(Box)(
 const Result = (props: ResultProps): JSX.Element => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const lineLength = props.result.lineLingth.toFixed(3);
+  const lineLength = props.result.lineLingth.toFixed(0);
   const lineSize = props.result.lineSize.toFixed(3);
 
   const handleCopyClick = (): void => {
