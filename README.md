@@ -16,7 +16,7 @@ Move in dev folder and make executable `run.sh`:
 sudo chmod +x run.sh
 ```
 
-The you can build the Docker image and run the container by:
+Then you can build the Docker image and run the container by:
 
 ```shell
 ./run.sh start
@@ -38,13 +38,13 @@ First setup [nvm](https://github.com/nvm-sh/nvm), then move in the main folder, 
 nvm use
 ```
 
-Now you can run the application on the node environment selected for the development:
+Now you can run the application in dev mode:
 
 ```shell
 npm start
 ```
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+Open [http://localhost:3000](http://localhost:3000) to show it in the browser.
 
 ## Deployment
 
