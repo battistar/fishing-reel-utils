@@ -1,4 +1,4 @@
-import { Box, IconButton, Snackbar, Stack, styled, Tooltip, Typography } from '@mui/material';
+import { Box, IconButton, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
 import { ContentCopy as CopyIcon, Share as ShareIcon, Close as CloseIcon } from '@mui/icons-material';
 import ResultData, { ResultType } from 'models/ResultData';
 import { useState } from 'react';
@@ -7,15 +7,6 @@ import { isMobile } from 'react-device-detect';
 interface ResultProps {
   result: ResultData;
 }
-
-const StyledBox = styled(Box)(
-  ({ theme }) => `
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: ${theme.spacing(8)} 0px;
-`
-);
 
 const Result = (props: ResultProps): JSX.Element => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -56,7 +47,14 @@ const Result = (props: ResultProps): JSX.Element => {
 
   return (
     <>
-      <StyledBox>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: (theme) => `${theme.spacing(8)} 0`,
+        }}
+      >
         <Stack spacing={2}>
           {props.result.type === ResultType.Size ? (
             <Stack alignItems="center">
@@ -88,7 +86,7 @@ const Result = (props: ResultProps): JSX.Element => {
             )}
           </Stack>
         </Stack>
-      </StyledBox>
+      </Box>
       <Snackbar
         open={openSnackbar}
         autoHideDuration={6_000}

@@ -1,18 +1,7 @@
-import { styled, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const BUILD_YEAR = 2023;
 const CURRENT_YEAR = new Date().getFullYear();
-
-const CustomizedFooter = styled('footer')(
-  ({ theme }) => `
-    width: 100%;
-    padding: ${theme.spacing(1)};
-    background-color: ${theme.palette.primary.main};
-    color: ${theme.palette.common.white};
-    display: flex;
-    justify-content: flex-start
-`
-);
 
 const Footer = (): JSX.Element => {
   let date;
@@ -23,9 +12,20 @@ const Footer = (): JSX.Element => {
   }
 
   return (
-    <CustomizedFooter>
-      <Typography variant="body2">© {date} Samuele Battistella</Typography>
-    </CustomizedFooter>
+    <footer>
+      <Box
+        sx={{
+          width: '100%',
+          padding: (theme) => theme.spacing(1),
+          backgroundColor: (theme) => theme.palette.primary.main,
+          color: (theme) => theme.palette.common.white,
+          display: 'flex',
+          justifyContent: 'flex-start',
+        }}
+      >
+        <Typography variant="body2">© {date} Samuele Battistella</Typography>
+      </Box>
+    </footer>
   );
 };
 
