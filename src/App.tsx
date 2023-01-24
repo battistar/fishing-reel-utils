@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, createTheme, ThemeProvider } from '@mui/material';
+import { Box, Container, createTheme, ThemeProvider } from '@mui/material';
 import Form from 'components/Form';
 import FormData from 'models/FormData';
 import Header from 'components/Header';
@@ -65,14 +65,18 @@ const App = (): JSX.Element => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
-      <main>
-        <Container maxWidth="sm">
-          <Form onSubmit={handleSubmit} />
-          <Result result={result} />
-        </Container>
-      </main>
-      <Footer />
+      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <Header />
+        <Box sx={{ flex: 1 }}>
+          <main>
+            <Container maxWidth="sm">
+              <Form onSubmit={handleSubmit} />
+              <Result result={result} />
+            </Container>
+          </main>
+        </Box>
+        <Footer />
+      </Box>
     </ThemeProvider>
   );
 };
