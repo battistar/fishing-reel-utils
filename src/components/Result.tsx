@@ -42,7 +42,7 @@ const Result = (props: ResultProps): JSX.Element => {
         console.error('Sharing failed', error);
       }
     } else {
-      console.warn(`Your system doesn't support sharing files.`);
+      console.warn(`Your system doesn't support sharing.`);
     }
   };
 
