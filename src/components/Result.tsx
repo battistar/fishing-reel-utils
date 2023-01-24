@@ -52,7 +52,7 @@ const Result = (props: ResultProps): JSX.Element => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          paddingTop: (theme) => theme.spacing(8),
+          padding: (theme) => `${theme.spacing(8)} 0`,
         }}
       >
         <Stack spacing={2}>
