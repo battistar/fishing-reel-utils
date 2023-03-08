@@ -1,17 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Box, Container, createTheme, ThemeProvider } from '@mui/material';
 import Form from 'components/Form';
-import FormData from 'models/FormData';
 import Header from 'components/Header';
-import ResultData, { ResultType } from 'models/ResultData';
-import Result from 'components/Result';
+import ResultBox, { ResultData, ResultType } from 'components/ResultBox';
 import Footer from 'components/Footer';
-
-const parseInput = (input: string): number => {
-  const normalizedInput = input.replace(',', '.');
-
-  return parseFloat(normalizedInput);
-};
 
 const getLineSize = (lineLength: number, lineSize: number, desiredLineLength: number): number => {
   return lineSize * Math.sqrt(lineLength / desiredLineLength);
@@ -36,45 +28,39 @@ const App = (): JSX.Element => {
     },
   });
 
-  const handleSubmit = (formData: FormData): void => {
-    const lineLength = parseInput(formData.lineLength);
-    const lineSize = parseInput(formData.lineSize);
-    const desiredLineLength = parseInput(formData.desiredLineLength);
-    const desiredLineSize = parseInput(formData.desiredLineSize);
+  const handleSubmit = useCallback(
+    (lineLength: number, lineSize: number, desiredLineLength: number | null, desiredLineSize: number | null): void => {
+      if (desiredLineSize) {
+        const length = getLineLength(lineLength, lineSize, desiredLineSize);
 
-    if (isNaN(desiredLineLength)) {
-      const length = getLineLength(lineLength, lineSize, desiredLineSize);
+        setResult({
+          type: ResultType.Length,
+          lineLingth: length,
+          lineSize: desiredLineSize,
+        });
+      }
 
-      setResult({
-        type: ResultType.Length,
-        lineLingth: length,
-        lineSize: desiredLineSize,
-      });
-    }
+      if (desiredLineLength) {
+        const size = getLineSize(lineLength, lineSize, desiredLineLength);
 
-    if (isNaN(desiredLineSize)) {
-      const size = getLineSize(lineLength, lineSize, desiredLineLength);
-
-      setResult({
-        type: ResultType.Size,
-        lineLingth: desiredLineLength,
-        lineSize: size,
-      });
-    }
-  };
+        setResult({
+          type: ResultType.Size,
+          lineLingth: desiredLineLength,
+          lineSize: size,
+        });
+      }
+    },
+    []
+  );
 
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
         <Header />
-        <Box sx={{ flex: 1 }}>
-          <main>
-            <Container maxWidth="sm">
-              <Form onSubmit={handleSubmit} />
-              <Result result={result} />
-            </Container>
-          </main>
-        </Box>
+        <Container component="main" maxWidth="sm" sx={{ flex: 1 }}>
+          <Form onSubmit={handleSubmit} />
+          <ResultBox result={result} />
+        </Container>
         <Footer />
       </Box>
     </ThemeProvider>

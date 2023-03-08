@@ -12,20 +12,19 @@ const Footer = (): JSX.Element => {
   }
 
   return (
-    <footer>
-      <Box
-        sx={{
-          width: '100%',
-          padding: (theme) => theme.spacing(1),
-          backgroundColor: (theme) => theme.palette.primary.main,
-          color: (theme) => theme.palette.common.white,
-          display: 'flex',
-          justifyContent: 'flex-start',
-        }}
-      >
-        <Typography variant="body2">© {date} Samuele Battistella</Typography>
-      </Box>
-    </footer>
+    <Box
+      component="footer"
+      sx={{
+        width: '100%',
+        p: 1,
+        backgroundColor: (theme) => theme.palette.primary.main,
+        color: (theme) => theme.palette.common.white,
+        display: 'flex',
+        justifyContent: 'flex-start',
+      }}
+    >
+      <Typography variant="body2">© {date} Samuele Battistella</Typography>
+    </Box>
   );
 };
 
