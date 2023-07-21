@@ -102,6 +102,30 @@ test('activates reset button', () => {
   expect(resetButtonElement).toBeDisabled();
 });
 
+test('resets form', () => {
+  const onSubmit = jest.fn();
+  render(<Form onSubmit={onSubmit} />);
+
+  const resetButtonElement = screen.getByText('Reset');
+
+  const lineLengthInputElement = screen.getByLabelText('Line length');
+  const lineSizeInputElement = screen.getByLabelText('Line size');
+  const desiredLineLengthInputElement = screen.getByLabelText('Desired line length');
+  const desiredLineSizeInputElement = screen.getByLabelText('Desired line size');
+
+  fireEvent.change(lineLengthInputElement, { target: { value: '1' } });
+  fireEvent.change(lineSizeInputElement, { target: { value: '1' } });
+  fireEvent.change(desiredLineLengthInputElement, { target: { value: '1' } });
+  fireEvent.change(desiredLineSizeInputElement, { target: { value: '1' } });
+
+  fireEvent.click(resetButtonElement);
+
+  expect(lineLengthInputElement).toHaveValue('');
+  expect(lineSizeInputElement).toHaveValue('');
+  expect(desiredLineLengthInputElement).toHaveValue('');
+  expect(desiredLineSizeInputElement).toHaveValue('');
+});
+
 test('disabled desired line size input', () => {
   const onSubmit = jest.fn();
   render(<Form onSubmit={onSubmit} />);
