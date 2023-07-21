@@ -73,6 +73,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
   return (
     <Stack component="form" onSubmit={handleSubmit} spacing={2}>
       <TextField
+        role="input"
         label="Line length"
         placeholder="E.g. 250"
         helperText="Line length reported on fishing reel spool"
@@ -88,6 +89,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
         onChange={handleChange}
       />
       <TextField
+        role="input"
         label="Line size"
         placeholder="E.g. 0.20"
         helperText="Line size reported on fishing reel spool"
@@ -104,6 +106,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
       />
       <Divider />
       <TextField
+        role="input"
         label="Desired line length"
         placeholder="E.g. 200"
         InputProps={{
@@ -120,6 +123,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
       />
       <Divider>OR</Divider>
       <TextField
+        role="input"
         label="Desired line size"
         placeholder="E.g. 0.18"
         InputProps={{
@@ -136,6 +140,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
       />
       <Stack direction="row" justifyContent="center" spacing={2}>
         <Button
+          role="resetButton"
           variant="contained"
           startIcon={<ReplayIcon />}
           onClick={handleResetClick}
@@ -149,6 +154,7 @@ const Form = ({ onSubmit }: FormProps): JSX.Element => {
           Reset
         </Button>
         <Button
+          role="submitButton"
           variant="contained"
           startIcon={<CalculateIcon />}
           type="submit"
