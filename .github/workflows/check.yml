@@ -10,7 +10,6 @@ on:
 
 jobs:
   ci:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,18 +17,21 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        
-    - name: Install deps
-      run: npm ci
-    
-    - name: Prettier check
-      run: npx prettier --check "src/**/*/*.{ts,tsx}"
-    
-    - name: Linter check
-      run: npx eslint "src/**/*/*.{ts,tsx}"
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Prettier check
+        run: npx prettier --check "src/**/*/*.{ts,tsx}"
+
+      - name: Linter check
+        run: npx eslint "src/**/*/*.{ts,tsx}"
+
+      - name: Run tests
+        run: npm test
